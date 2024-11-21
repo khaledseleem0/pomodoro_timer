@@ -16,7 +16,7 @@ export default function Home(){
     useEffect(()=>{
         async function getTasks(){
                 try {
-                    const res = await fetch("http://localhost:3000/api",{method:"GET"}).then((data)=>{
+                    const res = await fetch("/api",{method:"GET"}).then((data)=>{
                         return data.json()
                  })
                   setAllTasks([...res.all_tasks] as [])  
