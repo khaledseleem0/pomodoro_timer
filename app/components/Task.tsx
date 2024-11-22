@@ -35,7 +35,7 @@ export const Task: React.FC<TaskProps> = ({task}) => {
           <li className="text-slate-500 text-sm">{details}</li>
           <div
           onClick={()=>router.replace("/tasks/" + _id)}
-            className=" btn z-index-[-10000] block my-3  bg-blue-100 text-blue-500 hover:text-slate-100 hover:bg-blue-500 btn-wide w-full"          >
+            className=" btn  my-3  bg-blue-100 text-blue-500 hover:text-slate-100 hover:bg-blue-500 btn-wide w-full"          >
             {" "}
             Start This Shit{" "}
           </div>

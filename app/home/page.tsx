@@ -47,7 +47,6 @@ export default function Home(){
     <div className="  flex flex-col">
         <input className="input input-bordered w-full max-w-xs"  type="text" placeholder="Add Task" onChange={(e)=>setAdd(e.target.value)} />
         <button className=" my-3 btn btn-wide" onClick={addTaskFunc}>Add</button>
-        {/* <button className="btn btn-wide">Wide</button> */}
   
    </div>
     </>

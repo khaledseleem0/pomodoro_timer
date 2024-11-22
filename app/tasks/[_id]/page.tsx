@@ -21,27 +21,11 @@ export default function TaskPage() {
   ]
   // const pathname = usePathname();
   // const taskId: string = pathname.split("/")[2];
-  const [timeLeft, setTimeLeft] = useState(10); // 25 minutes in seconds
+  const [timeLeft, setTimeLeft] = useState(25 * 60); // 25 minutes in seconds
   const [isRunning, setIsRunning] = useState(true);
   const [mode,setMode] = useState("work")
   const [sessionNumer, setSessionNumer] = useState(0)
-  // useEffect(() => {
-  //   if (seconds !== undefined) {
-  //     const totalSeconds = seconds; // Convert minutes to seconds
-  //     const m = Math.floor((totalSeconds % 3600) / 60); // Calculate minutes
-  //     const s = totalSeconds % 60; // Calculate remaining seconds
-
-  //     setMinutes(m);
-  //     setSeconds(s);
-  //     console.log(minutes)
-  //   }
-  // }, [minutes]); // Recalculate if dbMinutes changes
-  // setInterval(() => {
-  //   setMinutes(minutes - 60);
-  //   console.log(minutes)
-
-  // }, 1000);
- // Start or stop the timer
+ 
  useEffect(() => {
   const savedTime = localStorage.getItem('pomodoro-time');
   if (savedTime) setTimeLeft(Number(savedTime)); // Restore the saved time
@@ -50,18 +34,14 @@ export default function TaskPage() {
 // Save timeLeft to localStorage whenever it changes
 useEffect(() => {
   localStorage.setItem('pomodoro-time', timeLeft.toString());
-  if(timeLeft == 0){
-    setSessionNumer(sessionNumer+1)
-  }
-}, [timeLeft,sessionNumer]);
+ 
+}, [timeLeft]);
 
  
  useEffect(() => {
   if (!isRunning) return;
-
   const timer = setInterval(() => {
     setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
-    
   }, 1000);
 
   return () => clearInterval(timer); // Clean up when the timer stops
@@ -70,7 +50,8 @@ const getMinutes = (seconds:number) => Math.floor(seconds / 60);
 const getSeconds = (seconds:number) => seconds % 60;
 
 const handleAgain = () => {
-  setTimeLeft(mode === 'work' ? 25 * 60 : 5 * 60); // Restart based on the current mode
+  setTimeLeft(mode === 'work' ?  25* 60  : 5 * 60); // Restart based on the current mode
+  setSessionNumer((session)=> (session < 2) ? session + 1 : 0)
   setIsRunning(true); // Start immediately
 };
 const handleBreak = () => {
