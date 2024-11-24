@@ -20,7 +20,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   position: relative;
 }
-
+*{
+  user-select: none !important;
+  -moz-window-dragging: no-drag;
+  -webkit-user-drag: none !important;;
+  -webkit-user-drag: none;
+}
 
 /* .progress-ring__circle {
   transition: stroke-dashoffset 0.35s;
