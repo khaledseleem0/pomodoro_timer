@@ -4,14 +4,15 @@
 // import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+ 
 export default function TaskPage() {
   const playSessionEndSound = () => {
-    const audio = new Audio("/audios/ring.wav"); // Path to your audio file
+    const audio = new Audio("../audios/ring.mp3"); // Path to your audio file
     audio.play().catch((error) => console.error("Audio play failed:", error));
   };
 
   const playBreakEndSound = () => {
-    const audio = new Audio("/audios/ding.wav"); // Path to your audio file
+    const audio = new Audio("/audios/ding.mp3"); // Path to your audio file
     audio.play().catch((error) => console.error("Audio play failed:", error));
   };
   const memes = [
