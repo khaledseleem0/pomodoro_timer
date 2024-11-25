@@ -26,7 +26,11 @@ body {
   -webkit-user-drag: none !important;;
   -webkit-user-drag: none;
 }
-
+.container{
+  margin: 0 auto;
+  /* display: flex; */
+  /* justify-content: center; */
+}
 /* .progress-ring__circle {
   transition: stroke-dashoffset 0.35s;
   transform: rotate(-90deg);
